@@ -1,3 +1,33 @@
 .profile{
-    gap: 20px;
+    display: flex;
+    padding: 34px 0 20px;
+    border-bottom: 1px rgb(33, 33, 33, 0.4) solid;
+}
+
+.profile__avatar{
+    margin-right: 20px;
+}
+
+.profile__column{
+    display: flex;
+    flex-direction: column;
+}
+
+.profile__name{
+    width: 420px;
+    height: 32px;
+}
+
+.profile__description{
+    width: hug(97px);
+    height: hug(16px);
+    gap: 12px;
+}
+
+.profile__add-btn{
+    margin-left: auto;
+}
+
+.profile__edit-btn{
+    margin-top: auto;
 }
