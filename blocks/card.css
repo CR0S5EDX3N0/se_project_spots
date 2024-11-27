@@ -1,3 +1,7 @@
+.card{
+    max-width: 413px;
+}
+
 .card__image{
     height: 413px;
     width: 413px;
@@ -8,4 +12,30 @@
     background-image: url(../images/Union.svg);
     height: 20px;
     width: 23px;
+    border: none;
+    background-color: transparent;
+    opacity: 40%;
+}
+
+.card__content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card__title{
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+@media screen and (max-width: 627px){
+    .card__image{
+        height: 288px;
+    }
+
 }
