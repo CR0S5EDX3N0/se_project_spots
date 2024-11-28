@@ -1,12 +1,12 @@
 .footer{
     justify-content: center;
     display: flex;
-    margin-top: 30px;
     color: #212121B2;
+    gap: 60px 0;
 }
 
-.copyright{
-    height: 16px;
+.footer__copyright{
+    margin: 0;
     font-family: Poppins, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: 400;
