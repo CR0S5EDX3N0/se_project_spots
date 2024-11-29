@@ -2,7 +2,7 @@
     justify-content: center;
     display: flex;
     color: #212121B2;
-    gap: 60px 0;
+    padding: 60px 0;
 }
 
 .footer__copyright{
