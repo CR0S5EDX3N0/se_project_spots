@@ -41,7 +41,11 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 16px;
+    text-overflow: ellipsis;
     text-align: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
     margin: 0;
