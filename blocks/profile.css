@@ -40,6 +40,7 @@
     font-family: Poppins, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: 500;
+    gap: 0;
     line-height: 16px;
     text-overflow: ellipsis;
     text-align: left;
@@ -52,6 +53,7 @@
 }
 
 .profile__add-btn{
+    width: 160px;
     margin-left: auto;
     margin-top: auto;
     background-color: #212121;
