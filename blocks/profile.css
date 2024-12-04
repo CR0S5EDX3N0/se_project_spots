@@ -76,7 +76,6 @@
     opacity: 0.7;
     border: transparent;
     background-color: transparent;
-    text-align: left;
     font-family: Poppins, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: 500;
@@ -113,7 +112,8 @@
     }
 
     .profile__description{
-        margin: 0 0 32px;
+        margin: 0;
+        gap: 12px;
         max-width: 288px;
         text-align: center;
     }
@@ -137,5 +137,6 @@
 
     .profile__add-btn{
         margin: 0;
+        width: 100%;
     }
 }
