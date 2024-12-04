@@ -21,6 +21,5 @@
     .cards__list{
         grid-template-columns: repeat(auto-fit, 288px);
         padding: 0 0 20px;
-        border-bottom: 1px rgb(33, 33, 33, 0.4) solid;
     }
 }
