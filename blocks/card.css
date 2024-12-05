@@ -5,7 +5,7 @@
 .card__image{
     height: 413px;
     width: 413px;
-    gap: 12px;
+    margin-bottom: 12px;
     object-fit: cover;
     border-radius: 8px;
 }
