@@ -29,6 +29,6 @@ profileEditButton.addEventListener("click", function () {
     openModal();
 });
 
-profileEditButton.addEventListener("click", function () {
+profileModalCloseBtn.addEventListener("click", function () {
     closeModal();
 });
