@@ -22,7 +22,7 @@ function openModal() {
 }
 
 function closeModal() {
-    profileModalCloseBtn.classList.remove("modal_closed");
+    profileModalCloseBtn.classList.remove("modal_opened");
 }
 
 profileEditButton.addEventListener("click", function () {
