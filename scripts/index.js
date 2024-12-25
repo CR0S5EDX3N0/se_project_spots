@@ -13,11 +13,33 @@ const initialCards = [
      link:"https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",},
 ];
 
-const profileEditButton = document.querySelector(".profile__edit-btn")
-const editModal = document.querySelector("#edit-profile-modal")
-const editModalCloseBtn = document.querySelector(".modal__close-btn")
+const profileEditButton = document.querySelector(".profile__edit-btn");
+const profileName = document.querySelector(".profile__name");
+const profileDescription = document.querySelector(".profile__description");
+
+const editModal = document.querySelector("#edit-profile-modal");
+const editFormElement = editModal.querySelector(".modal__form");
+const editModalCloseBtn = editModal.querySelector(".modal__close-btn");
+const editModalNameInput = editModal.querySelector("#profile-name-input");
+const editModalDescriptionInput = editModal.querySelector("#profile-description-input");
+
+const cardTemplate = document.querySelector("#card-template");
+const cardList = document.querySelector(".card__list")
+
+function getCardElement(data){
+    console.log(data)
+    const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+
+    const cardNameEl = cardElement.querySelector(".card__title")
+
+    cardNameEl.value = data.name;
+
+    return cardElement;
+}
 
 function openModal() {
+    editModalNameInput.value = profileName.textContent;
+    editModalNameInput.value = profileDescription.textContent;
     editModal.classList.add("modal_opened");
 }
 
@@ -25,6 +47,18 @@ function closeModal() {
     editModal.classList.remove("modal_opened");
 }
 
-profileEditButton.addEventListener("click", openModal);
+function handleEditFormSubmit(evt) {
+    evt.preventDefault();
+    profileName.textContent = editModalNameInput.value;
+    profileDescription.textContent = editModalNameInput.value;
+    editModal.classList.remove("modal_opened");
+}
 
+profileEditButton.addEventListener("click", openModal);
 editModalCloseBtn.addEventListener("click", closeModal);
+editFormElement.addEventListener("submit", handleEditFormSubmit);
+
+for (i = 0; i < initialCards.length; i++) {
+    getCardElement(initialCards[i])
+    cardList.prepend(cardElement);
+}
