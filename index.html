@@ -1,70 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="???" />
     <meta name="author" content="Jordan Reyes" />
     <meta name="keywords" content="html, css, ???" />
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <title>Sports</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="page">
-        <header class="header">
-            <img src="./images/logo.svg" alt="Sport logo" class="header__logo">
-        </header>
-        <main class="content">
-            <section class="profile page__section">
-                <img src="./images/avatar.jpg" alt="Avatar" class="profile__avatar">
-                <div class="profile__column">
-                    <h1 class="profile__name">Aliaune Damala Bouga Time Bongo Puru Nacka Lu Lu Lu Badara Akon...</h1>
-                    <p class="profile__description">Known mononymously as Akon (/ˈeɪkɒn/), is a Senegalese-American singer, record producer, and entrepreneur. An influential figure in modern world...</p>
-                    <button type="button" class="profile__edit-btn">
-                        <img src="./images/Group-2.svg" alt="Pencil icon"> Edit Profile
-                    </button>
+      <header class="header">
+        <img src="./images/logo.svg" alt="Sport logo" class="header__logo" />
+      </header>
+      <main class="content">
+        <section class="profile page__section">
+          <img src="./images/avatar.jpg" alt="Avatar" class="profile__avatar" />
+          <div class="profile__column">
+            <h1 class="profile__name">
+              Aliaune Damala Bouga Time Bongo Puru Nacka Lu Lu Lu Badara Akon...
+            </h1>
+            <p class="profile__description">
+              Known mononymously as Akon (/ˈeɪkɒn/), is a Senegalese-American
+              singer, record producer, and entrepreneur. An influential figure
+              in modern world...
+            </p>
+            <button type="button" class="profile__edit-btn">
+              <img src="./images/Group-2.svg" alt="Pencil icon" /> Edit Profile
+            </button>
+          </div>
+          <button type="button" class="profile__add-btn">
+            <img src="./images/Group-26.svg" alt="Plus icon" /> New Post
+          </button>
+        </section>
+        <section class="cards page__section">
+          <ul class="cards__list">
+            <template id="card-template">
+              <li class="card">
+                <img src="" alt="" class="card__image" />
+                <div class="card__content">
+                  <h2 class="card__title"></h2>
+                  <button type="button" class="card__like-btn"></button>
                 </div>
-                <button type="button" class="profile__add-btn">
-                    <img src="./images/Group-26.svg" alt="Plus icon"> New Post
-                </button>
-            </section>
-            <section class="cards page__section">
-                <ul class="cards__list">
-                    <template id="card-template">
-                        <li class="card">
-                            <img src="" 
-                            alt="" 
-                            class="card__image"
-                            >
-                            <div class="card__content">
-                                <h2 class="card__title"></h2>
-                                <button type="button" class="card__like-btn"></button>
-                            </div>
-                        </li>
-                    </template>
-                </ul>
-            </section>
-        </main>
-        <footer class="footer"><p class="footer__copyright">2024 &copy; Jordan</p></footer>
-        <div class="modal" id="edit-modal">
-            <div class="modal__container">
-                <button type="submit" class="modal__close-btn"></button>
-                <h2 class="modal__title">Edit profile</h2>
-                <form name="edit-profile" class="modal__form">
-                    <label for="profile-name-input" class="modal__label">
-                        Name
-                        <input id="profile-name-input" type="text" class="modal__input">
-                    </label>
-                    <label for="profile-description-input" class="modal__label">
-                        Description
-                        <input id="profile-description-input" type="text" class="modal__input">
-                    </label>
-                    <button type="submit" class="modal__submit-btn">Save</button>
-                </form>
-            </div>
+              </li>
+            </template>
+          </ul>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">2024 &copy; Jordan</p>
+      </footer>
+      <div class="modal" id="edit-modal">
+        <div class="modal__container">
+          <button type="button" class="modal__close-btn"></button>
+          <h2 class="modal__title">Edit profile</h2>
+          <form name="edit-profile" class="modal__form" id="profile-form">
+            <label for="profile-name-input" class="modal__label">
+              Name
+              <input id="profile-name-input" type="text" class="modal__input" />
+            </label>
+            <label for="profile-description-input" class="modal__label">
+              Description
+              <input
+                id="profile-description-input"
+                type="text"
+                class="modal__input"
+              />
+            </label>
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
         </div>
+      </div>
     </div>
     <script src="./scripts/index.js"></script>
-</body>
+  </body>
 </html>
