@@ -22,6 +22,7 @@
     padding: 32px 50px;
     max-width: 730px;
     position: relative;
+    border-radius: 8px;
 }
 
 .modal__close-btn {
@@ -74,7 +75,7 @@
 
 @media screen and (max-width: 627px){
     .modal__container {
-        max-width: 300px;
+        max-width: 320px;
     }
     
     .modal__input {
