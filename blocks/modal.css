@@ -75,11 +75,23 @@
 
 @media screen and (max-width: 320px){
     .modal__container {
-        max-width: 300px;
+        width: 300px;
+        padding: 12px;
     }
     
     .modal__input {
         width: 276px;
+        margin: 0 0 32px;
+    }
+
+    .modal__title {
+        font-size: 20px;
+        margin-top: auto;
+    }
+
+    .modal__close-btn {
+        top: 16px;
+        right: 25px;
     }
 
     .modal__submit-btn {
