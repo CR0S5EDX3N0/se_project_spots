@@ -10,18 +10,52 @@
     border-radius: 8px;
 }
 
+.card__remove-btn{
+    height: 32px;
+    width: 32px;
+    background-image: url(../images/State=Default.svg);
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    bottom: 420px;
+    right: 6px;
+    transition: 0.3s;
+}
+
+.card__remove-btn:hover{
+    cursor: pointer;
+    background-image: url(../images/State=Hover.svg);
+    transition: 0.3s;
+}
+
 .card__like-btn{
+    transition: opacity 0.3s;
     background-image: url(../images/Union.svg);
     height: 20px;
     width: 23px;
     border: none;
     background-color: transparent;
     opacity: 40%;
+    position: relative;
+    left: 35px;
 }
 
 .card__like-btn:hover{
+    transition: opacity 0.3s;
     opacity: 100%;
     cursor: pointer;
+}
+
+.card__like-btn_liked{
+    transition: opacity 0.3s;
+    background-image: url(../images/State=Liked.svg);
+    opacity: 100%;
+}
+
+.card__like-btn_liked:hover {
+    transition: opacity 0.3s;
+    opacity: 40%;
 }
 
 .card__content{

@@ -43,6 +43,7 @@
                 <div class="card__content">
                   <h2 class="card__title"></h2>
                   <button type="button" class="card__like-btn"></button>
+                  <button type="button" class="card__remove-btn"></button>
                 </div>
               </li>
             </template>
@@ -67,6 +68,30 @@
                 id="profile-description-input"
                 type="text"
                 class="modal__input"
+              />
+            </label>
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="modal" id="add-card-modal">
+        <div class="modal__container">
+          <button type="button" class="modal__close-btn"></button>
+          <h2 class="modal__title">New Post</h2>
+          <form name="add-card" class="modal__form" id="add-card-form">
+            <label for="add-card-name-input" class="modal__label">
+              Image link
+              <input id="add-card-link-input" type="url" class="modal__input" name="link" placeholder="Paste a link to the picture"/>
+            </label>
+            <label for="add-card-caption-input" class="modal__label">
+              Caption
+              <input
+                id="add-card-caption-input"
+                type="text"
+                name="name"
+                class="modal__input"
+                placeholder="Type your catiption"
               />
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
