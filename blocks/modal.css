@@ -11,14 +11,14 @@
     justify-content: center;
     visibility: hidden;
     border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.15s linear 0s, visibility 0s 0.15s;
 }
 
-.modal__opened{
+.modal_opened {
+    opacity: 1;
     visibility: visible;
-}
-
-.modal_is-opened{
-    visibility: visible;
+    transition: opacity 0.15s linear 0s;
 }
 
 .modal__container {
@@ -40,15 +40,28 @@
     background-color: transparent;
     border: none;
     opacity: 40%;
-    
+    transition: opacity 0.3s linear 0s, background-image 0.15s, background-color 0.15s;
 }
 
 .modal__close-btn:hover {
     background-color: #212121;
     background-image: url(../images/Property-1=Variant3.svg);
-    transition: opacity 0.3s;
+    transition: opacity 0.3s linear 0s, background-image 0.15s, background-color 0.15s;
     cursor: pointer;
     opacity: 80%;
+}
+
+.modal__close-btn_type_image-preview{
+    background-image: url(../images/Property-1=Variant3.svg);
+    top: auto;
+    right: -56px;
+}
+
+.modal__close-btn_type_image-preview:hover{
+    background-color: transparent;
+    cursor: pointer;
+    opacity: 80%;
+    transition: opacity 0.3s linear 0s, background-image 0.15s, background-color 0.15s;
 }
 
 .modal__title {
@@ -81,6 +94,28 @@
     transition: opacity 0.3s;
     cursor: pointer;
     opacity: 80%;
+}
+
+.modal__image {
+    max-width: 80vw;
+    max-height: 80vh;
+    border-radius: 8px;
+}
+
+.modal__caption{
+    color: #fff;
+    width: fit-content;
+    margin: 0;
+    background-color: #212121;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.modal__content{
+    max-width: 738px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    position: relative;
 }
 
 @media screen and (max-width: 320px){

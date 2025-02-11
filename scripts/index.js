@@ -32,7 +32,7 @@ const profileDescription = document.querySelector(".profile__description");
 
 const editModal = document.querySelector("#edit-modal");
 const editFormElement = editModal.querySelector(".modal__form");
-const addCardFormElement = editModal.querySelector("#add-card-form");
+
 const editModalCloseBtn = editModal.querySelector(".modal__close-btn");
 const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editModalDescriptionInput = editModal.querySelector("#profile-description-input");
@@ -40,10 +40,15 @@ const editModalDescriptionInput = editModal.querySelector("#profile-description-
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 const cardModal = document.querySelector("#add-card-modal");
-const cardDeleteBtn = cardModal.querySelector(".card__remove-btn");
+const addCardFormElement = cardModal.querySelector("#add-card-form");
 const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
-const cardModalLinkInput = editModal.querySelector("#add-card-link-input");
-const cardModalCaptionInput = editModal.querySelector("#add-card-caption-input");
+const cardModalLinkInput = cardModal.querySelector("#add-card-link-input");
+const cardModalCaptionInput = cardModal.querySelector("#add-card-caption-input");
+
+const previewModal = document.querySelector("#preview-card");
+const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
+const previewModalImageEl = previewModal.querySelector(".modal__image");
+const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
 
 function getCardElement(data) {
   const cardElement = cardTemplate.content
@@ -53,39 +58,50 @@ function getCardElement(data) {
   const cardNameEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardLikeBtn = cardElement.querySelector(".card__like-btn")
-
+  const cardDeleteBtn = cardElement.querySelector(".card__remove-btn"); 
+  
   cardNameEl.textContent = data.name;
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
 
   cardLikeBtn.addEventListener("click", () => {
-    cardLikeBtn.classList.toggle("card__like-btn_liked")
+    cardLikeBtn.classList.toggle("card__like-btn_liked");
   });
+  
+  cardDeleteBtn.addEventListener("click", () =>{
+      cardElement.remove();
+    });
+  
+    cardImageEl.addEventListener("click", () => {
+      openModal(previewModal)
+      previewModalImageEl.src = data.link;
+      previewModalImageEl.alt = data.name;
+      previewModalCaptionEl.textContent = data.name;
+    });
 
-  return cardElement;
+    return cardElement;
 }
 
 function openModal(modal) {
-  modal.classList.add("modal__opened");
+  modal.classList.add("modal_opened");
 }
 
 function closeModal(modal) {
-  modal.classList.remove("modal__opened");
+  modal.classList.remove("modal_opened");
 }
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
-  editModalNameInput.value = profileName.value;
-  editModalDescriptionInput.value = profileDescription.value;
+  profileName.textContent = editModalNameInput.value;
+  profileDescription.textContent = editModalDescriptionInput.value;
   closeModal(editModal);
 }
 
 function handleCardFormSubmit(evt){
   evt.preventDefault();
-  const inputValues = {name: cardModalCaptionInput.value , link: cardModalLinkInput.value};
+  const inputValues = {name: cardModalCaptionInput.value, link: cardModalLinkInput.value};
   const cardElement = getCardElement(inputValues);
-  cardsList.push();
-  cardsList.unshift
+  cardsList.prepend(cardElement);
   closeModal(cardModal);
 }
 
@@ -107,12 +123,8 @@ cardModalCloseBtn.addEventListener("click", () => {
   closeModal(cardModal);
 });
 
-cardDeleteBtn.addEventListener("click", function () {
-  const cards = document.querySelector(".card");
-
-  cards.forEach((item) =>{
-    cards.remove(item);
-  });
+previewModalCloseBtn.addEventListener("click", () =>{
+ closeModal(previewModal);
 });
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
