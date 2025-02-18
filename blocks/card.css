@@ -36,6 +36,7 @@
     width: 23px;
     border: none;
     background-color: transparent;
+    background-repeat: no-repeat;
     opacity: 40%;
     position: relative;
     left: 35px;
@@ -48,8 +49,10 @@
 }
 
 .card__like-btn_liked{
+    background-color: transparent;
     transition: opacity 0.3s;
-    background-image: url(../images/State=Liked.svg);
+    background-repeat: no-repeat;
+    background-image: url(../images/State=Liked\ \(2\).svg);
     opacity: 100%;
 }
 

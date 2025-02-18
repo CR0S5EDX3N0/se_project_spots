@@ -53,8 +53,9 @@
 
 .modal__close-btn_type_image-preview{
     background-image: url(../images/Property-1=Variant3.svg);
-    top: auto;
-    right: -56px;
+    position: relative;
+    top: -710px;
+    right: -642px;
 }
 
 .modal__close-btn_type_image-preview:hover{
@@ -73,6 +74,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    
 }
 
 .modal__input {
@@ -80,6 +82,13 @@
     width: 630px;
     border-radius: 8px;
     margin-bottom: 32px;
+    opacity: 40%;
+    transition: opacity 0.3s linear 0s;
+}
+
+.modal__input:hover{
+    opacity: 80%;
+    transition: opacity 0.3s linear 0s;
 }
 
 .modal__submit-btn {
@@ -140,5 +149,15 @@
 
     .modal__submit-btn {
         width: 300px;
+    }
+
+    .modal__image {
+        max-width: 90vw;
+        max-height: 200vw;
+    }
+
+    .modal__close-btn{
+        top: -40px;
+        right: -5px;
     }
 }
