@@ -100,4 +100,8 @@
         background-size: contain;
         background-repeat: no-repeat;
     }
+
+    .card__remove-btn{
+        bottom: 300px;
+    }
 }
