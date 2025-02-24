@@ -155,11 +155,6 @@
     }
 
     .modal__close-btn_type_image-preview{
-        top: -5px;
-        right: -242px;
-    }
-
-    .modal__content{
-        right: -16px;
+        top: -40px;
     }
 }
