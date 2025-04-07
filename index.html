@@ -63,15 +63,20 @@
           <form name="edit-profile" class="modal__form" id="profile-form">
             <label for="profile-name-input" class="modal__label">
               Name
-              <input id="profile-name-input" type="text" class="modal__input" />
+              <input id="profile-name-input" type="text" class="modal__input" required minlength="2" maxlength="40"/>
             </label>
+            <span class="modal__error">Please add a name (2-40 characters).</span>
             <label for="profile-description-input" class="modal__label">
               Description
               <input
                 id="profile-description-input"
                 type="text"
                 class="modal__input"
+                required
+                minlength="2"
+                maxlength="200"
               />
+              <span class="modal__error">Please add a discription (2-200 characters).</span>
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
@@ -90,8 +95,10 @@
                 class="modal__input"
                 name="link"
                 placeholder="Paste a link to the picture"
+                required
               />
             </label>
+            <span class="modal__error">Please enter a URL.</span>
             <label for="add-card-caption-input" class="modal__label">
               Caption
               <input
@@ -100,7 +107,11 @@
                 name="name"
                 class="modal__input"
                 placeholder="Type your catiption"
+                required
+                minlength="2"
+                maxlength="30"
               />
+              <span class="modal__error">Please add a caption. (2-30 characters only)</span>
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
@@ -122,5 +133,6 @@
       </div>
     </div>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validation.js"></script>
   </body>
 </html>
