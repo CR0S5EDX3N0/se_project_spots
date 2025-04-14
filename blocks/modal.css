@@ -91,6 +91,11 @@
     transition: opacity 0.3s linear 0s;
 }
 
+.modal__input_error {
+    border-color: red;
+    color: red;
+  }
+
 .modal__submit-btn {
     border-radius: 8px;
     padding: 18px 32px;

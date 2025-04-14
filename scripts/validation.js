@@ -1,4 +1,4 @@
-const validationSettings = {
+const settings = {
   inputErrorClass: "modal__error",
   errorClass: "modal__error-active",
   inactiveButtonClass: "modal__submit-btn_disabled",
@@ -6,16 +6,18 @@ const validationSettings = {
   submitButtonSelector: ".modal__submit-btn"
 };
 
+enableValidation(settings);
+
 const showInputError = (formEl, inputEl, errorMessage) => {
   const errorElement = formEl.querySelector(`#${inputEl.id}-error`);
-  inputEl.classList.add("modal__error");
+  inputEl.classList.add("modal__input_error");
   errorElement.textContent = errorMessage;
   errorElement.classList.add("modal__error-active");
 };
 
 const hideInputError = (formEl, inputEl) => {
   const errorElement = formEl.querySelector(`#${inputEl.id}-error`);
-  inputEl.classList.remove("modal__error");
+  inputEl.classList.remove("modal__input_error");
   errorElement.classList.remove("modal__error-active");
   errorElement.textContent = "";
 };
@@ -29,25 +31,23 @@ const checkInputValidity = (formEl, inputEl) => {
 };
 
 const setEventListeners = (formEl) => {
-  const inputList = Array.from(formEl.querySelectorAll(validationSettings.inputSelector));
-  const buttonElement = formEl.querySelector(validationSettings.submitButtonSelector);
+  const inputList = Array.from(formEl.querySelectorAll(settings.inputSelector));
+  const buttonElement = formEl.querySelector(settings.submitButtonSelector);
 
     inputList.forEach((inputEl) => {
       inputEl.addEventListener("input", function () {
         checkInputValidity(formEl, inputEl);
-        toggleButtonState(inputList, buttonElement);
+        toggleButtonState(inputList, buttonElement, config);
       });
     });
   };
 
-const enableValidation = () => {
+const enableValidation = (settings) => {
     const formList = document.querySelectorAll(".modal__form");
     formList.forEach((formEl) => {
       setEventListeners(formEl);
     });
 }
-
-enableValidation();
 
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
@@ -55,7 +55,7 @@ const toggleButtonState = (inputList, buttonElement) => {
         buttonElement.disabled = true;
     } else {
         buttonElement.classList.remove("modal__submit-btn_disabled");
-        buttonElement.disabled = false; 
+        buttonElement.disabled = false;
     }
 }
 
@@ -63,31 +63,13 @@ function hasInvalidInput(inputList) {
   return inputList.some((inputEl) => !inputEl.validity.valid);
 }
 
-document.addEventListener("keydown", (evt) => {
-  if (evt.key === "Escape") {
-    const openedModal = document.querySelector(".modal_opened");
-    if (openedModal) {
-      closeModal(openedModal);
-    }
-  }
-});
-
-const modals = document.querySelectorAll('.modal');
-modals.forEach((modal) => {
-  modal.addEventListener('mousedown', (evt) => {
-    if (evt.target === modal) {
-      closeModal(modal);
-    }
-  });
-});
-
 function resetValidation(formEl, settings) {
   const inputList = Array.from(formEl.querySelectorAll(settings.inputSelector));
   const buttonElement = formEl.querySelector(settings.submitButtonSelector);
- 
+
   inputList.forEach((inputEl) => {
       hideInputError(formEl, inputEl);
   });
-  
-  toggleButtonState(inputList, buttonElement)
+  formEl.reset();
+  toggleButtonState(inputList, buttonElement);
  }
