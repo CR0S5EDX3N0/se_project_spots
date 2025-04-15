@@ -136,11 +136,12 @@
 }
 
 .modal__error {
+    color: red;
     margin-top: 8px;
     visibility: hidden;
 }
 
-.modal__error-activate{
+.modal__error-active{
     visibility: visible;
 }
 
