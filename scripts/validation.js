@@ -1,12 +1,12 @@
 const settings = {
-  inputErrorClass: "modal__error",
-  errorClass: "modal__error-active",
-  inactiveButtonClass: "modal__submit-btn_disabled",
+  formSelector: ".modal__form",
   inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__submit-btn"
+  submitButtonSelector: ".modal__submit-btn",
+  inactiveButtonClass: "modal__submit-btn_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible"
 };
 
-enableValidation(settings);
 
 const showInputError = (formEl, inputEl, errorMessage) => {
   const errorElement = formEl.querySelector(`#${inputEl.id}-error`);
@@ -37,7 +37,7 @@ const setEventListeners = (formEl) => {
     inputList.forEach((inputEl) => {
       inputEl.addEventListener("input", function () {
         checkInputValidity(formEl, inputEl);
-        toggleButtonState(inputList, buttonElement, config);
+        toggleButtonState(inputList, buttonElement);
       });
     });
   };
@@ -49,14 +49,18 @@ const enableValidation = (settings) => {
     });
 }
 
+enableValidation(settings);
+
 const toggleButtonState = (inputList, buttonElement) => {
+  if (!buttonElement) return;
+
   if (hasInvalidInput(inputList)) {
-        buttonElement.classList.add("modal__submit-btn_disabled");
-        buttonElement.disabled = true;
-    } else {
-        buttonElement.classList.remove("modal__submit-btn_disabled");
-        buttonElement.disabled = false;
-    }
+    buttonElement.classList.add(settings.inactiveButtonClass);
+    buttonElement.disabled = true;
+  } else {
+    buttonElement.classList.remove(settings.inactiveButtonClass);
+    buttonElement.disabled = false;
+  }
 }
 
 function hasInvalidInput(inputList) {
@@ -73,3 +77,21 @@ function resetValidation(formEl, settings) {
   formEl.reset();
   toggleButtonState(inputList, buttonElement);
  }
+
+ document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    if (openedModal) {
+      closeModal(openedModal);
+    }
+  }
+});
+
+const modals = document.querySelectorAll('.modal');
+modals.forEach((modal) => {
+  modal.addEventListener('mousedown', (evt) => {
+    if (evt.target === modal) {
+      closeModal(modal);
+    }
+  });
+});
