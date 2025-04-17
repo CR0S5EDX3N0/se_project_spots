@@ -1,3 +1,5 @@
+import { settings, resetValidation } from "./validation.js";
+
 const initialCards = [
   {
     name: "Val Thorens",
@@ -104,12 +106,13 @@ function handleCardFormSubmit(evt){
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
   closeModal(cardModal);
-  disableButton(evt.submitter, settings);
+  resetValidation(addCardFormElement, settings);
 }
 
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
+  resetValidation(profileForm, settings);
   openModal(editModal);
 });
 
@@ -117,7 +120,7 @@ addCardButton.addEventListener("click", () => {
   openModal(cardModal);
 });
 
-const closeButtons = document.querySelectorAll('.modal__close');
+const closeButtons = document.querySelectorAll('.modal__close-btn');
 
 closeButtons.forEach((button) => {
   const popup = button.closest('.modal');
@@ -141,3 +144,20 @@ initialCards.forEach((item) => {
   cardsList.append(cardElement);
 });
 
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    if (openedModal) {
+      closeModal(openedModal);
+    }
+  }
+});
+
+const modals = document.querySelectorAll('.modal');
+modals.forEach((modal) => {
+  modal.addEventListener('mousedown', (evt) => {
+    if (evt.target === modal) {
+      closeModal(modal);
+    }
+  });
+});

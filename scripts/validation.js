@@ -78,20 +78,5 @@ function resetValidation(formEl, settings) {
   toggleButtonState(inputList, buttonElement);
  }
 
- document.addEventListener("keydown", (evt) => {
-  if (evt.key === "Escape") {
-    const openedModal = document.querySelector(".modal_opened");
-    if (openedModal) {
-      closeModal(openedModal);
-    }
-  }
-});
-
-const modals = document.querySelectorAll('.modal');
-modals.forEach((modal) => {
-  modal.addEventListener('mousedown', (evt) => {
-    if (evt.target === modal) {
-      closeModal(modal);
-    }
-  });
-});
+ export { settings, resetValidation };
+ 
