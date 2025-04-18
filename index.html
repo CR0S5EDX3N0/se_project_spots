@@ -8,7 +8,7 @@
     <meta name="keywords" content="html, css, ???" />
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <title>Sports</title>
+    <title>Spots</title>
   </head>
   <body>
     <div class="page">
@@ -55,20 +55,26 @@
       </footer>
       <div class="modal" id="edit-modal">
         <div class="modal__container">
-          <button
-            type="button"
-            class="modal__close-btn"
-          ></button>
+          <button type="button" class="modal__close-btn"></button>
           <h2 class="modal__title">Edit profile</h2>
           <form name="edit-profile" class="modal__form" id="profile-form">
             <label for="profile-name-input" class="modal__label">
               Name
-              <input id="profile-name-input" type="text" class="modal__input" required minlength="2" maxlength="40"/>
+              <input
+                id="profile-name-input"
+                placeholder="Name"
+                type="text"
+                class="modal__input"
+                required
+                minlength="2"
+                maxlength="40"
+              />
             </label>
             <span class="modal__error" id="profile-name-input-error">Please add a name (2-40 characters).</span>
             <label for="profile-description-input" class="modal__label">
               Description
               <input
+                placeholder="Description"
                 id="profile-description-input"
                 type="text"
                 class="modal__input"
@@ -106,10 +112,11 @@
                 type="text"
                 name="name"
                 class="modal__input"
-                placeholder="Type your catiption"
+                placeholder="Type your caption"
                 required
                 minlength="2"
                 maxlength="30"
+                place
               />
               <span class="modal__error" id="add-card-caption-input-error">Please add a caption. (2-30 characters only)</span>
             </label>
@@ -123,16 +130,12 @@
             type="button"
             class="modal__close-btn modal__close-btn_type_image-preview"
           ></button>
-          <img
-            src=""
-            alt=""
-            class="modal__image"
-          />
+          <img src="" alt="" class="modal__image" />
           <p class="modal__caption"></p>
         </div>
       </div>
     </div>
-    <script type="module" src="./scripts/index.js"></script>
-    <script type="module" src="./scripts/validation.js"></script>
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/validation.js"></script>
   </body>
 </html>

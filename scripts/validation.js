@@ -10,14 +10,14 @@ const settings = {
 
 const showInputError = (formEl, inputEl, errorMessage) => {
   const errorElement = formEl.querySelector(`#${inputEl.id}-error`);
-  inputEl.classList.add("modal__input_error");
+  inputEl.classList.add("modal__input_type_error");
   errorElement.textContent = errorMessage;
   errorElement.classList.add("modal__error-active");
 };
 
 const hideInputError = (formEl, inputEl) => {
   const errorElement = formEl.querySelector(`#${inputEl.id}-error`);
-  inputEl.classList.remove("modal__input_error");
+  inputEl.classList.remove("modal__input_type_error");
   errorElement.classList.remove("modal__error-active");
   errorElement.textContent = "";
 };
@@ -30,7 +30,7 @@ const checkInputValidity = (formEl, inputEl) => {
   }
 };
 
-const setEventListeners = (formEl) => {
+const setEventListeners = (formEl, settings) => {
   const inputList = Array.from(formEl.querySelectorAll(settings.inputSelector));
   const buttonElement = formEl.querySelector(settings.submitButtonSelector);
 
@@ -45,7 +45,7 @@ const setEventListeners = (formEl) => {
 const enableValidation = (settings) => {
     const formList = document.querySelectorAll(".modal__form");
     formList.forEach((formEl) => {
-      setEventListeners(formEl);
+      setEventListeners(formEl, settings);
     });
 }
 
@@ -78,5 +78,3 @@ function resetValidation(formEl, settings) {
   toggleButtonState(inputList, buttonElement);
  }
 
- export { settings, resetValidation };
- 

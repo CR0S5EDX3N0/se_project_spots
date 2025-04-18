@@ -45,9 +45,6 @@
 }
 
 .modal__close-btn:hover {
-    background-color: #212121;
-    background-image: url(../images/Property-1=Variant3.svg);
-    background-repeat: no-repeat;
     transition: opacity 0.3s linear 0s, background-image 0.15s, background-color 0.15s;
     cursor: pointer;
     opacity: 80%;
@@ -67,36 +64,53 @@
 }
 
 .modal__title {
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #212121;
     margin: 0 0 32px;
 }
 
 .modal__label {
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 110.00000000000001%;
     margin-bottom: 32px;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    color: #212121;
+  opacity: 70%;
 }
 
 .modal__input {
+    border-width: 1px;
     padding: 16px 12px;
     width: 630px;
     border-radius: 8px;
     opacity: 40%;
     transition: opacity 0.3s linear 0s;
     margin: 8px 0 0;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 100%;
 }
 
 .modal__input:hover{
-    opacity: 80%;
     transition: opacity 0.3s linear 0s;
+    opacity: 80%;
 }
 
-.modal__input_error {
-    border-color: red;
-    color: red;
-  }
+.modal__input_type_error {
+  border: 1px solid #FF0000;
+}
 
 .modal__submit-btn {
+    border: transparent;
     border-radius: 8px;
     padding: 18px 32px;
     width: 156px;
