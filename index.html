@@ -74,15 +74,16 @@
             <label for="profile-description-input" class="modal__label">
               Description
               <input
-                placeholder="Description"
-                id="profile-description-input"
-                type="text"
-                class="modal__input"
-                required
-                minlength="2"
-                maxlength="200"
+                  placeholder="Description"
+                  id="profile-description-input"
+                  type="text"
+                  class="modal__input"
+                  required
+                  minlength="2"
+                  maxlength="200"
               />
-              <span class="modal__error" id="profile-description-input-error">Please add a discription (2-200 characters).</span>
+             </label>
+             <span class="modal__error" id="profile-description-input-error">Please add a description (2-200 characters).</span>
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
@@ -108,17 +109,17 @@
             <label for="add-card-caption-input" class="modal__label">
               Caption
               <input
-                id="add-card-caption-input"
-                type="text"
-                name="name"
-                class="modal__input"
-                placeholder="Type your caption"
-                required
-                minlength="2"
-                maxlength="30"
-                place
+                  id="add-card-caption-input"
+                  type="text"
+                  name="name"
+                  class="modal__input"
+                  placeholder="Type your caption"
+                  required
+                  minlength="2"
+                  maxlength="30"
               />
-              <span class="modal__error" id="add-card-caption-input-error">Please add a caption. (2-30 characters only)</span>
+             </label>
+             <span class="modal__error" id="add-card-caption-input-error">Please add a caption. (2-30 characters only)</span>
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
@@ -135,7 +136,7 @@
         </div>
       </div>
     </div>
-    <script src="./scripts/index.js"></script>
-    <script src="./scripts/validation.js"></script>
+    <script defer src="./scripts/index.js"></script>
+    <script defer src="./scripts/validation.js"></script>
   </body>
 </html>

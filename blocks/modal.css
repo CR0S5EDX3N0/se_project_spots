@@ -41,13 +41,12 @@
     background-color: transparent;
     border: none;
     opacity: 40%;
-    transition: opacity 0.3s linear 0s, background-image 0.15s, background-color 0.15s;
+    transition: opacity 0.3s;
 }
 
 .modal__close-btn:hover {
-    transition: opacity 0.3s linear 0s, background-image 0.15s, background-color 0.15s;
     cursor: pointer;
-    opacity: 80%;
+    opacity: 100%;
 }
 
 .modal__close-btn_type_image-preview{
@@ -78,31 +77,34 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 110.00000000000001%;
-    margin-bottom: 32px;
     display: flex;
     flex-direction: column;
     gap: 8px;
     color: #212121;
-  opacity: 70%;
 }
 
 .modal__input {
+    color: #000000;
     border-width: 1px;
     padding: 16px 12px;
     width: 630px;
     border-radius: 8px;
-    opacity: 40%;
-    transition: opacity 0.3s linear 0s;
-    margin: 8px 0 0;
+    transition: border-color 0.3s linear 0s;
+    margin: 0;
     font-family: Poppins;
     font-weight: 500;
     font-size: 20px;
     line-height: 100%;
+    border: 1px solid rgba(33, 33, 33, 0.4);
 }
 
 .modal__input:hover{
-    transition: opacity 0.3s linear 0s;
-    opacity: 80%;
+    transition: border-color 0.3s linear 0s;
+    border: 1px solid rgba(33, 33, 33, 0.8);
+}
+
+.modal__input::placeholder{
+  color: rgba(33, 33, 33, 0.3);
 }
 
 .modal__input_type_error {
@@ -157,6 +159,12 @@
 
 .modal__error-active{
     visibility: visible;
+}
+
+.modal__form{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 @media screen and (max-width: 320px){
