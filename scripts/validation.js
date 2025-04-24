@@ -61,8 +61,8 @@ const toggleButtonState = (inputList, buttonElement, settings) => {
   }
 };
 
-function hasInvalidInput(inputs) {
-  return inputSelector.some((inputSelector) => !inputSelector.validity.valid);
+function hasInvalidInput(inputList) {
+  return Array.from(inputList).some((inputElement) => !inputElement.validity.valid);
 }
 
 function resetValidation(formElement, settings) {
@@ -70,7 +70,7 @@ function resetValidation(formElement, settings) {
   const buttonElement = formElement.querySelector(settings.submitButtonSelector);
 
   inputList.forEach((inputElement) => {
-    hideInputError(settings, formSelector, inputSelector);
+    hideInputError(settings, formElement, inputElement);
   });
   formElement.reset();
   toggleButtonState(inputList, buttonElement, settings);
