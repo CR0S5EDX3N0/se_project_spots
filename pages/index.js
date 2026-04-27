@@ -1,6 +1,6 @@
-import "../pages/index.css";
-import { enableValidation, settings, resetValidation } from "./validate.js";
-import { Api } from "./api.js";
+import "index.css";
+import { enableValidation, settings, resetValidation } from "../scripts/validation.js";
+import { Api } from "../utils/api.js";
 
 // const initialCards = [
 //   {
@@ -37,10 +37,15 @@ const api = new Api({
   }
 });
 
-api.getUserInfo()
+api.getInitialCards()
   .then((cards) => {
-    console.log(cards);
+    cards.forEach((item) => {
+      const cardElement = getCardElement(item);
+      cardsList.append(cardElement);
+    });
   })
+  .catch(console.error);
+
 
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const addCardButton = document.querySelector(".profile__add-btn");
