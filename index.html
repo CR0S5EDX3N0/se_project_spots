@@ -17,7 +17,12 @@
       </header>
       <main class="content">
         <section class="profile page__section">
+          <div class="profile__avatar-container">
+            <button type="button" class="profile__avatar-btn">
+              <img class="profile__pencil-icon" src="./images/Group-3.png" alt="Pencil icon" /> Edit Profile
+            </button>
           <img src="./images/avatar.jpg" alt="Avatar" class="profile__avatar" />
+          </div>
           <div class="profile__column">
             <h1 class="profile__name">
               Aliaune Damala Bouga Time Bongo Puru Nacka Lu Lu Lu Badara Akon...
@@ -136,7 +141,22 @@
         </div>
       </div>
     </div>
-    <script defer src="./scripts/index.js"></script>
-    <script defer src="./scripts/validation.js"></script>
+    <div class modal modal_is-open id="delete-form">
+      <div class="modal__content">
+        <button
+        aria-label="close modal"
+        class="modal__close"
+        type="button"
+        ></button>
+        <h3 class="modal__title">
+          Are you sure?
+        </h3>
+        <form class="modal__form" id="delete-card-form">
+          <button type="submit" class="modal__submit-btn">Yes</button>
+          <button type="button" class="modal__cancel-btn">No</button>
+      </div>
+    </div>
+    <script defer src="./pages/index.js" type="module"></script>
+    <script defer src="./scripts/validation.js" type="module"></script>
   </body>
 </html>

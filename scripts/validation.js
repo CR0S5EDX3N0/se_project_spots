@@ -75,4 +75,5 @@ function resetValidation(formElement, settings) {
   formElement.reset();
   toggleButtonState(inputList, buttonElement, settings);
 }
+
 export { enableValidation, settings, resetValidation };
