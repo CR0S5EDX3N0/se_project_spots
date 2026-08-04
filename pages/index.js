@@ -1,5 +1,5 @@
 import Api from "../utils/api.js";
-import { enableValidation, settings, resetValidation } from "../utils/validation.js";
+import { enableValidation, settings, resetValidation } from "../scripts/validation.js";
 import { initialTodos, validationConfig } from "../utils/constants.js";
 import { setButtonText } from "../utils/helpers.js";
 
