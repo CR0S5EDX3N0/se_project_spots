@@ -39,21 +39,21 @@ const api = new Api({
   }
 });
 
-api.getInitialCards()
-  .then((cards) => {
-    cards.forEach((item) => {
-      const cardElement = getCardElement(item);
-      cardsList.append(cardElement);
-    });
-  })
+api.getUserInfo()
+.then((userData) => {
+  profileName.textContent = userData.name;
+  profileDescription.textContent = userData.about;
+  profileAvatar.src = userData.avatar;
+})
 .catch(console.error);
 
-api.getappInfo()
-.then((cards) => {
-cards.forEach((item) => {
-  const cardElement = getCardElement(item);
-  cardsList.append(cardElement);
-})
+api.getappInfo().then(([cards, userInfo]) => {
+  cards.forEach((item) => {
+    const cardElement = getCardElement(item);
+    cardsList.append(cardElement);
+  });
+  profileName.textContent = userInfo.name;
+  profileDescription.textContent = userInfo.about;
 });
 
 
@@ -62,6 +62,7 @@ const profileEditButton = document.querySelector(".profile__edit-btn");
 const addCardButton = document.querySelector(".profile__add-btn");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
+const profileAvatar = document.querySelector(".profile__avatar");
 
 const editModal = document.querySelector("#edit-modal");
 const profileForm = document.forms["profile-form"];
@@ -134,9 +135,10 @@ function handleEditFormSubmit(evt) {
 
   api.editUserInfo({ name: editModalNameInput.value, about: editModalDescriptionInput.value })
   .then((data) => {
-    profileName.textContent = data.value;
-  profileDescription.textContent = data.value;
-  closeModal(editModal);
+    profileName.textContent = data.name;
+    profileDescription.textContent = data.about;
+    profileAvatar.src = data.avatar;
+    closeModal(editModal);
   })
   .catch(console.error)
   .finally(() => {
@@ -218,7 +220,16 @@ modals.forEach((modal) => {
   });
 });
 
+function handleDeleteCard(cardElement, data) {
+  openModal(deleteModal);
+  deleteForm.addEventListener("submit", handleDeleteSubmit);
+}
+
 function handleDeleteSubmit(evt) {
+  let selectedCard;
+  let selectedCardId = data._id;
+  selectedCard = deleteForm.closest(".card");
+  selectedCardId = selectedCard.dataset.id;
   evt.preventDefault();
   api.deleteCard(selectedCardId)
     .then(() => {
@@ -228,11 +239,7 @@ function handleDeleteSubmit(evt) {
     .catch(console.error);
 }
 
-function handleDeleteCard(cardElement, data) {
-  selectedCard = cardElement;
-  selectedCardId = cardId;
-  openModal(deleteModal);
-}
+
 
 function handleLike(evt, id) {
   const likeButton = evt.target;
