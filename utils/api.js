@@ -4,6 +4,7 @@ class Api {
     this._headers = headers;
   }
 
+
   getappInfo() {
     return Promise.all([this.getInitialCards(), this.getUserInfo()])
   }
@@ -58,7 +59,7 @@ class Api {
    })
   }
 
-  changeLikeStatus({ id, isLiked }) {
+  changeLikeCardStatus({ id, isLiked }) {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: isLiked ? "DELETE" : "PUT",
       headers: this._headers,
@@ -69,6 +70,38 @@ class Api {
     Promise.reject(`Error: ${res.status}`);
    })
   }
+
+  editUserAvatar({ avatar }) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar,
+      }),
+    }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    Promise.reject(`Error: ${res.status}`);
+   })
+  }
+
+  addNewCard({ name, link }) {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({
+        name,
+        link,
+      }),
+    }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    Promise.reject(`Error: ${res.status}`);
+   })
+  }
+  
 
 }
 

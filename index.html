@@ -130,6 +130,27 @@
           </form>
         </div>
       </div>
+      <div class="modal" id="avatar-modal">
+        <div class="modal__container">
+          <button type="button" class="modal__close-btn"></button>
+          <h2 class="modal__title">Edit avatar</h2>
+          <form name="edit-avatar" class="modal__form" id="edit-avatar-form">
+            <label for="avatar-link-input" class="modal__label">
+              Avatar
+              <input
+                id="avatar-link-input"
+                type="url"
+                class="modal__input"
+                name="link"
+                placeholder="Paste a link to the picture"
+                required
+              />
+            </label>
+            <span class="modal__error" id="avatar-link-input-error">Please enter a URL.</span>
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+      </div>
       <div class="modal" id="preview-card">
         <div class="modal__content">
           <button
@@ -142,10 +163,10 @@
       </div>
     </div>
     <div class="modal" id="delete-card-modal">
-      <div class="modal__content">
+      <div class="modal__container">
         <button
         aria-label="close modal"
-        class="modal__close"
+        class="modal__close-btn modal__close-btn_type_image-preview"
         type="button"
         ></button>
         <h3 class="modal__title">
