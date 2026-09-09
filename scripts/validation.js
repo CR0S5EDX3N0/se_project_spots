@@ -52,6 +52,7 @@ const setEventListeners = (formSelector, settings) => {
     });
   };
 
+
 const enableValidation = (settings) => {
   const formList = document.querySelectorAll(settings.formSelector);
     formList.forEach((formSelector) => {
