@@ -1,7 +1,7 @@
 const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__submit-btn",
+  submitTypeSelector: "[type='submit']",
   inactiveButtonClass: "modal__submit-btn_disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error-active"
@@ -42,7 +42,7 @@ const toggleButtonState = (inputList, buttonElement, settings) => {
 
 const setEventListeners = (formSelector, settings) => {
   const inputList = Array.from(formSelector.querySelectorAll(settings.inputSelector));
-  const buttonElement = formSelector.querySelector(settings.submitButtonSelector);
+  const buttonElement = formSelector.querySelector(settings.submitTypeSelector);
   toggleButtonState(inputList, buttonElement, settings);
     inputList.forEach((inputSelector) => {
       inputSelector.addEventListener("input", function () {
