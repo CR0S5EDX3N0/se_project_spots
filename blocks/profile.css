@@ -103,6 +103,34 @@
     cursor: pointer;
 }
 
+.profile__avatar-btn{
+      position: absolute;
+      transition: opacity 0.3s;
+      border: transparent;
+      background-color: transparent;
+      color: #fff;
+      font-family: Poppins, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 16px;
+      text-align: left;
+      gap: 8px;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+      bottom: 0;
+      left: 30px;
+      right: 0;
+      opacity: 0;
+    }
+
+    .profile__avatar-container{
+      position: relative;
+    }
+    .profile__avatar-container:hover .profile__avatar-btn{
+      transition: opacity 0.3s;
+      opacity: 0.8;
+    }
+
 @media screen and (max-width: 627px){
     .profile{
         flex-direction: column;

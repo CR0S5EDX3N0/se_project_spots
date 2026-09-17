@@ -167,6 +167,15 @@
   gap: 12px;
 }
 
+.modal__delete-btn {
+    border: transparent;
+    border-radius: 8px;
+    padding: 18px 32px;
+    width: 156px;
+    background-color: #FF0000;
+    color: #212121;
+}
+
 @media screen and (max-width: 320px){
     .modal__container {
         width: 280px;
