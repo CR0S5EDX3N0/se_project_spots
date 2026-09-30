@@ -24,6 +24,7 @@ class Api {
       }
       Promise.reject(`Error: ${res.status}`);
      })
+     .then(this._checkResponse);
     }
 
   editUserInfo({ name, about }) {
@@ -40,6 +41,7 @@ class Api {
     }
     Promise.reject(`Error: ${res.status}`);
    })
+   .then(this._checkResponse);
   }
 
   deleteCard({ id }) {
@@ -52,6 +54,7 @@ class Api {
     }
     Promise.reject(`Error: ${res.status}`);
    })
+   .then(this._checkResponse);
   }
 
   changeLikeCardStatus({ id, isLiked }) {
@@ -64,6 +67,7 @@ class Api {
     }
     Promise.reject(`Error: ${res.status}`);
    })
+   .then(this._checkResponse);
   }
 
   editUserAvatar({ avatar }) {
@@ -79,6 +83,7 @@ class Api {
     }
     Promise.reject(`Error: ${res.status}`);
    })
+   .then(this._checkResponse);
   }
 
   addNewCard({ name, link }) {
@@ -95,6 +100,7 @@ class Api {
     }
     Promise.reject(`Error: ${res.status}`);
    })
+   .then(this._checkResponse);
   }
 
   _checkResponse(res) {

@@ -39,13 +39,6 @@ const api = new Api({
   }
 });
 
-api.getUserInfo()
-.then((userData) => {
-  profileName.textContent = userData.name;
-  profileDescription.textContent = userData.about;
-  profileAvatar.src = userData.avatar;
-})
-.catch(console.error);
 
 api.getappInfo()
 .then(([cards, userInfo]) => {
@@ -200,6 +193,45 @@ editAvatarForm.addEventListener("submit", (evt) => {
       setButtonText(submitButton, false, "Save", "Saving...");
     });
 });
+
+export function renderLoading(isLoading, buttonElement, defaultText, loadingText) {
+  if (isLoading) {
+    buttonElement.textContent = loadingText;
+  } else {
+    buttonElement.textContent = defaultText;
+  }
+}
+
+function handleSubmit(evt, apiMethod, successCallback) {
+  evt.preventDefault();
+  const submitButton = evt.submitter;
+  const initialText = submitButton.textContent;
+  renderLoading(true, submitButton, initialText, "Saving...");
+
+  request(apiMethod)
+    .then(() => {
+      successCallback();
+      evt.target.reset();
+    })
+    .catch((error) => {
+      console.error(error);
+    })
+    .finally(() => {
+      renderLoading(false, submitButton, initialText, "Saving...");
+    });
+
+}
+
+function handleProfileFormSubmit(evt) {
+  function makeRequest() {
+    return editProfile(nameInput.value, jobInput.value).then((userData) => {
+      userName.textContent = userData.name;
+      userJob.textContent = userData.about;
+      closeModal(profileModal);
+    });
+  }
+  handleSubmit(makeRequest, evt);
+}
 
 profileForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
