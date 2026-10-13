@@ -1,7 +1,7 @@
 import Api from "../utils/api.js";
 import { enableValidation, settings, resetValidation } from "../scripts/validation.js";
 import { initialTodos, validationConfig } from "../utils/constants.js";
-import { setButtonText } from "../utils/helpers.js";
+import { setButtonText, handleSubmit, renderLoading } from "../utils/helpers.js";
 
 
 // const initialCards = [
@@ -96,6 +96,7 @@ const editAvatarModal = document.querySelector("#avatar-modal");
 const editAvatarForm = editAvatarModal.querySelector("#edit-avatar-form");
 const editAvatarInput = editAvatarForm.querySelector("#avatar-link-input");
 const editAvatarButton = document.querySelector(".profile__avatar-btn");
+let selectedCard, selectedCardId;
 
 function getCardElement(data) {
   const cardElement = cardTemplate.content
@@ -194,33 +195,7 @@ editAvatarForm.addEventListener("submit", (evt) => {
     });
 });
 
-export function renderLoading(isLoading, buttonElement, defaultText, loadingText) {
-  if (isLoading) {
-    buttonElement.textContent = loadingText;
-  } else {
-    buttonElement.textContent = defaultText;
-  }
-}
 
-function handleSubmit(evt, apiMethod, successCallback) {
-  evt.preventDefault();
-  const submitButton = evt.submitter;
-  const initialText = submitButton.textContent;
-  renderLoading(true, submitButton, initialText, "Saving...");
-
-  request(apiMethod)
-    .then(() => {
-      successCallback();
-      evt.target.reset();
-    })
-    .catch((error) => {
-      console.error(error);
-    })
-    .finally(() => {
-      renderLoading(false, submitButton, initialText, "Saving...");
-    });
-
-}
 
 function handleProfileFormSubmit(evt) {
   function makeRequest() {
@@ -315,21 +290,21 @@ modals.forEach((modal) => {
 
 function handleDeleteCard(cardElement, data) {
   openModal(deleteModal);
-
-  const deleteForm = deleteModal.querySelector("#delete-card-form");
-  deleteForm.addEventListener("submit", (evt) => {
+  selectedCard = cardElement;
+  selectedCardId = data._id;
+}
+deleteForm.addEventListener("submit", (evt) => {
     evt.preventDefault();
     const submitButton = evt.submitter;
     setButtonText(submitButton, true, "Yes", "Deleting...");
 
-    api.deleteCard(data._id)
+    api.deleteCard({ id: selectedCardId })
       .then(() => {
-        cardElement.remove();
+        selectedCard.remove();
         closeModal(deleteModal);
       })
       .catch(console.error)
       .finally(() => {
         setButtonText(submitButton, false, "Yes", "Deleting...");
       });
-  }, { once: true });
-}
+  });

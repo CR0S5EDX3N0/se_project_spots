@@ -4,7 +4,8 @@ const settings = {
   submitTypeSelector: "[type='submit']",
   inactiveButtonClass: "modal__submit-btn_disabled",
   inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error-active"
+  errorClass: "modal__error-active",
+  submitButtonSelector: ".modal__submit-btn"
 };
 
 
