@@ -244,12 +244,15 @@ profileAvatarForm.addEventListener("submit", (evt) => {
   const submitButton = evt.submitter;
   setButtonText(submitButton, true, "Save", "Saving...");
 
-  api.editUserAvatar({ avatar: profileAvatarForm.elements["avatar-link"].value })
+  api.editUserAvatar({ avatar: editAvatarInput.value })
     .then((data) => {
       profileAvatar.src = data.avatar;
-      closeModal(editModal);
+      closeModal(editAvatarModal);
     })
     .catch(console.error)
+    .finally(() => {
+      setButtonText(submitButton, false, "Save", "Saving...");
+    });
 });
 
 addCardFormElement.addEventListener("submit", (evt) => {
