@@ -175,9 +175,22 @@ deleteFormCancelButton.addEventListener("click", () => {
   closeModal(deleteModal);
 });
 
-deleteFormSubmitButton.addEventListener("click", () => {
-  closeModal(deleteModal);
+deleteForm.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  const submitButton = evt.submitter;
+  setButtonText(submitButton, true, "Yes", "Deleting...");
+
+  api.deleteCard({ id: selectedCardId })
+    .then(() => {
+      selectedCard.remove();
+      closeModal(deleteModal);
+    })
+    .catch(console.error)
+    .finally(() => {
+      setButtonText(submitButton, false, "Yes", "Deleting...");
+    });
 });
+
 
 editAvatarForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
@@ -237,9 +250,6 @@ profileAvatarForm.addEventListener("submit", (evt) => {
       closeModal(editModal);
     })
     .catch(console.error)
-    .finally(() => {
-      setButtonText(submitButton, false, "Save", "Saving...");
-    });
 });
 
 addCardFormElement.addEventListener("submit", (evt) => {
