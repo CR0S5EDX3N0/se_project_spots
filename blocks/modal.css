@@ -249,4 +249,16 @@
         top: -40px;
         right: -6px;
     }
+
+    .modal__delete-container{
+        width: 280px;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal__delete-form{
+        flex-direction: column;
+        gap: 12px;
+    }
 }
