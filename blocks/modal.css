@@ -168,12 +168,20 @@
 }
 
 .modal__delete-btn {
+    font-family: Poppins, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
     border: transparent;
     border-radius: 8px;
     padding: 18px 32px;
     width: 156px;
     background-color: #FF0000;
     color: #212121;
+    transition: opacity 0.3s, color 0.3s, background-color 0.3s;
 }
 
 
@@ -184,15 +192,25 @@
 }
 
 .modal__cancel-btn {
-    border: transparent;
+    font-family: Poppins, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    border: thin solid rgba(33, 33, 33, 0.4);
     border-radius: 8px;
     padding: 18px 32px;
     width: 156px;
-    background-color: #212121;
-    color: #fff;
+    background-color: #fff;
+    color: #212121;
+    transition: opacity 0.3s, color 0.3s, background-color 0.3s;
 }
 
 .modal__cancel-btn:hover {
+    color: #fff;
+    background-color: #212121;
     transition: opacity 0.3s;
     cursor: pointer;
     opacity: 80%;
