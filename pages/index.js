@@ -34,7 +34,7 @@ import { setButtonText, handleSubmit, renderLoading } from "../utils/helpers.js"
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
-    authorization: "d0008e0d-4c01-49c3-80b2-d7b7bd0cfe40",
+    authorization: "f861a228-ef38-49bc-8005-1498c4737f56",
     "Content-Type": "application/json"
   }
 });
@@ -190,25 +190,6 @@ deleteForm.addEventListener("submit", (evt) => {
       setButtonText(submitButton, false, "Yes", "Deleting...");
     });
 });
-
-
-editAvatarForm.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  const submitButton = evt.submitter;
-  setButtonText(submitButton, true, "Save", "Saving...");
-
-  api.editUserAvatar({ avatar: editAvatarInput.value })
-    .then((data) => {
-      profileAvatar.src = data.avatar;
-      closeModal(editAvatarModal);
-    })
-    .catch(console.error)
-    .finally(() => {
-      setButtonText(submitButton, false, "Save", "Saving...");
-    });
-});
-
-
 
 function handleProfileFormSubmit(evt) {
   function makeRequest() {
