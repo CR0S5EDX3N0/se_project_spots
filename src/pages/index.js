@@ -1,3 +1,4 @@
+import "./index.css";
 import Api from "../utils/api.js";
 import { enableValidation, settings, resetValidation } from "../scripts/validation.js";
 import { initialTodos, validationConfig } from "../utils/constants.js";
