@@ -48,7 +48,7 @@
     cursor: pointer;
 }
 
-.card__like-btn_liked{
+.card__like-btn_active{
     background-color: transparent;
     transition: opacity 0.3s;
     background-repeat: no-repeat;
@@ -56,7 +56,7 @@
     opacity: 100%;
 }
 
-.card__like-btn_liked:hover {
+.card__like-btn_active:hover {
     transition: opacity 0.3s;
     opacity: 40%;
 }

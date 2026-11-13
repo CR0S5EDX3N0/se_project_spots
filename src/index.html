@@ -6,18 +6,22 @@
     <meta name="description" content="???" />
     <meta name="author" content="Jordan Reyes" />
     <meta name="keywords" content="html, css, ???" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <title>Spots</title>
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img src="./images/logo.svg" alt="Sport logo" class="header__logo" />
+        <img src="./images/Group-1.svg" alt="Logo" class="header__logo" />
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img src="./images/avatar.jpg" alt="Avatar" class="profile__avatar" />
+          <div class="profile__avatar-container">
+            <button type="button" class="profile__avatar-btn">
+              <img class="profile__pencil-icon" src="./images/Group-3.png" alt="Pencil icon" /> Edit Profile
+            </button>
+          <img src="./images/Group-2.png" alt="Profile picture" class="profile__avatar" />
+          </div>
           <div class="profile__column">
             <h1 class="profile__name">
               Aliaune Damala Bouga Time Bongo Puru Nacka Lu Lu Lu Badara Akon...
@@ -28,11 +32,11 @@
               in modern world...
             </p>
             <button type="button" class="profile__edit-btn">
-              <img src="./images/Group-2.svg" alt="Pencil icon" /> Edit Profile
+              <img src="./images/Group-3.png" alt="Pencil icon" /> Edit Profile
             </button>
           </div>
           <button type="button" class="profile__add-btn">
-            <img src="./images/Group-26.svg" alt="Plus icon" /> New Post
+            <img src="./images/Group-4.png" alt="Plus icon" /> New Post
           </button>
         </section>
         <section class="cards page__section">
@@ -125,6 +129,27 @@
           </form>
         </div>
       </div>
+      <div class="modal" id="avatar-modal">
+        <div class="modal__container">
+          <button type="button" class="modal__close-btn"></button>
+          <h2 class="modal__title">Edit avatar</h2>
+          <form name="edit-avatar" class="modal__form" id="edit-avatar-form">
+            <label for="avatar-link-input" class="modal__label">
+              Avatar
+              <input
+                id="avatar-link-input"
+                type="url"
+                class="modal__input"
+                name="link"
+                placeholder="Paste a link to the picture"
+                required
+              />
+            </label>
+            <span class="modal__error" id="avatar-link-input-error">Please enter a URL.</span>
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+      </div>
       <div class="modal" id="preview-card">
         <div class="modal__content">
           <button
@@ -136,7 +161,21 @@
         </div>
       </div>
     </div>
-    <script defer src="./scripts/index.js"></script>
-    <script defer src="./scripts/validation.js"></script>
+    <div class="modal" id="delete-card-modal">
+      <div class="modal__delete-container">
+        <button
+        aria-label="close modal"
+        class="modal__close-btn modal__close-btn_type_image-preview"
+        type="button"
+        ></button>
+        <h3 class="modal__title">
+          Are you sure you want to delete this post?
+        </h3>
+        <form class="modal__delete-form" id="delete-card-form">
+          <button type="submit" class="modal__delete-btn">Delete</button>
+          <button type="button" class="modal__cancel-btn">Cancel</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
