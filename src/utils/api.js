@@ -5,12 +5,11 @@ class Api {
   }
 
   getInitialCards() {
-    fetch("https://around-api.en.tripleten-services.com/v1", {
-  headers: {
-    authorization: "f861a228-ef38-49bc-8005-1498c4737f56"
-  }
-  })
-  .then(res => res.json())
+    return this._request(`${this._baseUrl}/cards`, {
+      headers: {
+        authorization: "f861a228-ef38-49bc-8005-1498c4737f56"
+      }
+    });
   }
 
 
@@ -19,10 +18,9 @@ class Api {
   }
 
   getUserInfo() {
-    return fetch(`${this._baseUrl}/users/me`,{
+    return this._request(`${this._baseUrl}/users/me`, {
       headers: this._headers,
     })
-     .then(this._checkResponse);
     }
 
   editUserInfo({ name, about }) {
